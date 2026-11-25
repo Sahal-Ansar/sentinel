@@ -60,7 +60,12 @@ Add an entry whenever a decision is made or changed. Never rewrite an old entry;
 - Why: one bill, one key in CI. The SDK still instruments both OpenAI and Anthropic clients, which is what the spec asks for.
 - Rejected: using both providers in the demo agents (double the setup for no demo value).
 - Revisit if: judge agreement is poor and a different judge model would help.
-- Provider chosen: _fill in at step 0.3_
+- Provider chosen (2026-11-26, step 0.3a, Sahal): local Ollama with `qwen2.5:7b` for agents and judge, through the official `anthropic` Python SDK and Ollama's Anthropic-compatible endpoint. Moving to the Claude API when credits exist (step 0.3b).
+  - Why: no API credits yet. Ollama cloud is pay-per-token as of 2026-11-26, so local is the only free option. `qwen2.5:7b` was already installed and fits in 8 GB of VRAM. Using the `anthropic` SDK for both should make the switch an env change (`LLM_BASE_URL`, `LLM_API_KEY`, `AGENT_MODEL`, `JUDGE_MODEL`).
+  - Adds: the `anthropic` dependency and the `LLM_BASE_URL` env var (empty means the Claude API).
+  - Rejected: `qwen3.5:9b` (6.6 GB download, tight on 8 GB of VRAM); Ollama cloud (paid); the `openai` SDK (the later switch would need code changes).
+  - Known limits per Ollama's docs: no forced tool choice, no prompt caching, no token-counting endpoint, approximate token counts. Observed 2026-11-26: the same prompt sent twice reported 36 then 1 input tokens (likely prompt reuse in Ollama), so token totals are unreliable on this setup. Context defaulted to 4096 tokens here. From a container the URL is `http://host.docker.internal:11434`.
+  - Consequences: cost metrics mean nothing on a free local model, so they stay `not measured` until Claude. GitHub runners cannot reach the laptop, so 0.3b must be done before the CI gate in week 3. A model change invalidates baselines, the response cache and judge calibration; re-run them and never mix numbers from two models.
 
 ## D-009 RQ plus a ticker process — 2026-11-25
 - Decision: Redis + RQ for jobs; a small `ticker` process enqueues periodic jobs.

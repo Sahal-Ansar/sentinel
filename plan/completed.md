@@ -6,17 +6,17 @@ The single source of truth for where the project is. Updated after every step.
 
 Updated every session. On track = steps done / 57 is at least sessions used / 48.
 
-- **Sessions used:** 1 / 48
+- **Sessions used:** 2 / 48
 - **Steps done:** 2 / 57
-- **Status:** on track
+- **Status:** behind (2 / 57 is below 2 / 48; on track needs 3 steps. 0.3 counts once 0.3b is done)
 - **Crunch weeks:** 2, 7, 8
 
 ## Current position
 
-- **Next step:** 0.3 Accounts and keys `[you]` `[short]`
+- **Next step:** 0.4 Compose skeleton `[short]`
 - **Week:** not started
 - **Blocked on:** nothing
-- **Open (started, not done):** none
+- **Open (started, not done):** 0.3 (0.3a done; 0.3b waits for Claude API credits, due before the week 3 CI gate)
 - **Cut so far:** none
 
 ## Progress
@@ -52,6 +52,15 @@ Add an entry at the top of the log (newest first), then update "Current position
 Rules: a step is `done` only if its check was actually run and passed. A step that was started and not finished is `in progress` with what is left. Never delete an entry; correct it with a new line.
 
 ## Log
+
+### 0.3a Local LLM — 2026-11-26
+- Status: done (0.3 as a whole: in progress, 0.3b left)
+- Commit: see `git log --grep "(0.3a)"`
+- What was built: `demo_agents/check_llm.py`, the `anthropic` dependency (2.14.0) in `demo_agents`, `LLM_BASE_URL` in `.env.example`, local `.env` (gitignored, placeholder key). Step 0.3 split into 0.3a and 0.3b.
+- Done-when check: `rtk proxy uv run --locked --package sentinel-demo-agents --env-file .env python demo_agents/check_llm.py` printed `qwen2.5:7b end_turn 36` and `text='Ready'`, exit 0. A second run also passed.
+- Deviations from steps.md / architecture.md: local Ollama instead of a paid provider, `LLM_BASE_URL` added (D-008). No spending cap or GitHub secret yet (0.3b).
+- Numbers measured: none (the token counts above are check output, not results)
+- Follow-ups: 1.1 should pick a context size above Ollama's 4096 default, or long prompts may be cut off, and should not trust Ollama's input token counts (36, then 1, for the same prompt). Ollama must be running (`ollama serve`) before any agent run. 0.3b before the week 3 CI gate.
 
 ### 0.2 Repo scaffold — 2026-11-26
 - Status: done

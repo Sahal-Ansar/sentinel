@@ -42,11 +42,16 @@
 - Fill in the Commands section of `CLAUDE.md`.
 - **Done when:** first push shows a green CI run on GitHub.
 
-### 0.3 Accounts and keys `[you]` `[short]`
-- Choose the LLM provider (whichever you have credits for). Create an API key, set a monthly spending cap in the provider console.
-- Put the key in `.env` and in GitHub Actions secrets. Check current model list and pricing; set `AGENT_MODEL` and `JUDGE_MODEL` to the cheapest tier that follows instructions reliably.
+### 0.3a Local LLM `[short]`
+- Local Ollama through the `anthropic` SDK (D-008). Set `LLM_PROVIDER`, `LLM_BASE_URL`, `AGENT_MODEL` and `JUDGE_MODEL` in `.env`.
 - Record the choice in `decisions.md` D-008.
-- **Done when:** a one-off script makes one successful LLM call using only env vars, and the spending cap is visible in the console.
+- **Done when:** a one-off script makes one successful LLM call using only env vars.
+
+### 0.3b Claude API key `[you]` `[short]`
+Split from 0.3 (D-008). Do it when API credits exist, and before the week 3 CI gate at the latest. 0.3 counts as one step and is done when both parts are.
+- Create a Claude API key and set a monthly spending cap in the provider console.
+- Put the key in `.env` and in GitHub Actions secrets, and clear `LLM_BASE_URL`. Check current model list and pricing; set `AGENT_MODEL` and `JUDGE_MODEL` to the cheapest tier that follows instructions reliably.
+- **Done when:** the same script makes one successful call to Claude using only env vars, and the spending cap is visible in the console.
 
 ### 0.4 Compose skeleton `[short]`
 - `docker-compose.yml` with `postgres` (pgvector image) and `redis`, healthchecks, named volumes.

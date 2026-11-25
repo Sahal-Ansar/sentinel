@@ -14,7 +14,7 @@
 | Two agent setups | Agent A = plain provider SDK, no framework. Agent B = LangGraph. | D-005 |
 | Agent A corpus | Docs for a fictional product, written for this project | D-006 |
 | Agent B tools | `search` over a fixed local corpus, `calculator`, `db_query` on a mock SQLite DB. No live web search by default. | D-007 |
-| LLM provider | One provider for agents + judge, chosen in step 0.3, behind a thin wrapper; models set only by env var | D-008 |
+| LLM provider | Local Ollama (`anthropic` SDK against its Anthropic-compatible endpoint) until Claude API credits exist, then Claude; one provider at a time for agents + judge, behind a thin wrapper; provider and models set only by env var | D-008 |
 | Queue | Redis + RQ, plus a small `ticker` process for periodic jobs | D-009 |
 | Database | PostgreSQL + pgvector, SQLAlchemy 2.0 async, Alembic | D-010 |
 | Embeddings | Local small 384-dim model through `fastembed` (ONNX); `sentence-transformers` as fallback. One `embed()` function hides the choice. | D-011 |
@@ -256,7 +256,8 @@ Details the spec leaves open:
 DATABASE_URL=
 REDIS_URL=
 # llm
-LLM_PROVIDER=            # openai | anthropic
+LLM_PROVIDER=            # openai | anthropic (anthropic also covers Ollama through LLM_BASE_URL)
+LLM_BASE_URL=            # empty for the Claude API; http://localhost:11434 for local Ollama
 LLM_API_KEY=
 AGENT_MODEL=
 JUDGE_MODEL=
