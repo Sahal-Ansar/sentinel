@@ -61,6 +61,7 @@ Rules: a step is `done` only if its check was actually run and passed. A step th
 - Deviations from steps.md / architecture.md: `sentinel-llm` was taken, so the name changed (D-004). Ruff skips `*.md` so it does not reformat the plan. `uv_build` (part of uv) is the SDK build backend.
 - Numbers measured: none
 - Follow-ups: `make` is not installed locally, so the Makefile has only run in CI; 0.4 needs it. `.claude/` is gitignored because `graphify claude install` writes machine-local paths; rerun it on a new clone. `graphify update .` segfaults here (Microsoft Store Python) unless run as `PYTHONHASHSEED=0 graphify update .`. The graph's plan-doc nodes predate this session's plan edits; refresh with `/graphify . --update` at the week 1 close. Empty folders hold `.gitkeep`; remove each when real files land.
+- Correction (2026-11-26): GNU Make 4.4.1 is now installed; `make lint` and `make test` pass locally.
 
 ### 0.1 Machine setup — 2026-11-26
 - Status: done
