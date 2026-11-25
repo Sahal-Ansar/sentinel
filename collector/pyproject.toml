@@ -1,0 +1,9 @@
+[project]
+name = "sentinel-collector"
+version = "0.0.0"
+description = "Ingest and read API."
+requires-python = ">=3.12"
+dependencies = []
+
+[tool.uv]
+package = false

@@ -1,0 +1,18 @@
+{
+  "0": "Rules",
+  "1": "Offline Eval + CI Regression Gate",
+  "2": "Results",
+  "3": "Sentinel Platform",
+  "4": "Failure-Mode Detection",
+  "5": "Ticker Service",
+  "6": "Agent B: Tool-Using Research Agent",
+  "7": "Root-Cause Failure Clustering",
+  "8": "Collector API Endpoints",
+  "9": "test_import.py",
+  "10": "__init__.py",
+  "11": "sentinel-collector",
+  "12": "sentinel-demo-agents",
+  "13": "sentinel-evals",
+  "14": "sentinel-obs",
+  "15": "sentinel-workers"
+}

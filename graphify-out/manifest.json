@@ -1,0 +1,122 @@
+{
+  "CLAUDE.md": {
+    "mtime": 1795639371.3971555,
+    "seen": 1795639420.5287664,
+    "ast_hash": "0a08401363d1155ba516b6ee38ca4852",
+    "semantic_hash": ""
+  },
+  "plan/README.md": {
+    "mtime": 1795603607.1672423,
+    "seen": 1795639330.1822424,
+    "ast_hash": "d6c502fa773e301012532a35479017b2",
+    "semantic_hash": "d6c502fa773e301012532a35479017b2"
+  },
+  "plan/architecture.md": {
+    "mtime": 1795639371.3981552,
+    "seen": 1795639420.5291443,
+    "ast_hash": "3b79c92f40f4e2b402ec8f16794eeae8",
+    "semantic_hash": ""
+  },
+  "plan/completed.md": {
+    "mtime": 1795639371.4195633,
+    "seen": 1795639420.5291483,
+    "ast_hash": "3251a6bf23086cad6a805ec5ab63049f",
+    "semantic_hash": ""
+  },
+  "plan/decisions.md": {
+    "mtime": 1795639371.3995502,
+    "seen": 1795639420.5291512,
+    "ast_hash": "ce7705ecfcf9c0e9c7280e34c1238de9",
+    "semantic_hash": ""
+  },
+  "plan/journal.md": {
+    "mtime": 1795603613.5058508,
+    "seen": 1795639330.1822536,
+    "ast_hash": "4ef7c15d4af28fcdbfdda5f41652a6de",
+    "semantic_hash": "4ef7c15d4af28fcdbfdda5f41652a6de"
+  },
+  "plan/results.md": {
+    "mtime": 1795603612.8685753,
+    "seen": 1795639330.182256,
+    "ast_hash": "9c959fc3c5ed4d731f1ff2254aca0fe8",
+    "semantic_hash": "9c959fc3c5ed4d731f1ff2254aca0fe8"
+  },
+  "plan/rules.md": {
+    "mtime": 1795639371.418563,
+    "seen": 1795639420.5298738,
+    "ast_hash": "33c57431df56c66475980d5541d93662",
+    "semantic_hash": ""
+  },
+  "plan/spec.md": {
+    "mtime": 1795603607.888187,
+    "seen": 1795639330.1822596,
+    "ast_hash": "e8c22dcb1296bed181b17be03a625895",
+    "semantic_hash": "e8c22dcb1296bed181b17be03a625895"
+  },
+  "plan/steps.md": {
+    "mtime": 1795606821.498582,
+    "seen": 1795639330.182261,
+    "ast_hash": "a7b89a59a97f8da3c83256ab5235568d",
+    "semantic_hash": "a7b89a59a97f8da3c83256ab5235568d"
+  },
+  "collector/pyproject.toml": {
+    "mtime": 1795639081.3448198,
+    "seen": 1795639420.5287452,
+    "ast_hash": "0c69f29a8fccb6d2bdc4b2f85e14e460",
+    "semantic_hash": ""
+  },
+  "demo_agents/pyproject.toml": {
+    "mtime": 1795639081.347838,
+    "seen": 1795639420.5287519,
+    "ast_hash": "32f32c4f1c561da3c9a5a204daa2686c",
+    "semantic_hash": ""
+  },
+  "evals/pyproject.toml": {
+    "mtime": 1795639081.3468354,
+    "seen": 1795639420.528755,
+    "ast_hash": "2dc11052b5ece3cdb1225262df4abdc8",
+    "semantic_hash": ""
+  },
+  "sdk/pyproject.toml": {
+    "mtime": 1795639081.344311,
+    "seen": 1795639420.5287566,
+    "ast_hash": "c2cd42a3085fbab1534055dc5235964e",
+    "semantic_hash": ""
+  },
+  "sdk/src/sentinel_obs/__init__.py": {
+    "mtime": 1795639081.3500705,
+    "seen": 1795639420.5287588,
+    "ast_hash": "0aa020fcb4a26202cf025003b2d2c2d1",
+    "semantic_hash": ""
+  },
+  "sdk/tests/test_import.py": {
+    "mtime": 1795639081.3510811,
+    "seen": 1795639420.5287604,
+    "ast_hash": "ea966fc5ed07d4c239fd0a976113f6de",
+    "semantic_hash": ""
+  },
+  "workers/pyproject.toml": {
+    "mtime": 1795639081.3458254,
+    "seen": 1795639420.5287616,
+    "ast_hash": "93a5ce8c757e9e027a3fd229c4151c32",
+    "semantic_hash": ""
+  },
+  ".github/workflows/ci.yml": {
+    "mtime": 1795639081.372086,
+    "seen": 1795639420.5287626,
+    "ast_hash": "b91aa9b36e92293cc096b678e3c2eee5",
+    "semantic_hash": ""
+  },
+  ".pre-commit-config.yaml": {
+    "mtime": 1795639081.3710864,
+    "seen": 1795639420.5287635,
+    "ast_hash": "73e111143fe07bb90ff5f327f2d9d0db",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1795639081.3733528,
+    "seen": 1795639420.5287685,
+    "ast_hash": "a38525de4689edd2dce9c1f788043dd9",
+    "semantic_hash": ""
+  }
+}
