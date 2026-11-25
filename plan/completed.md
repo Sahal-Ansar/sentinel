@@ -7,13 +7,13 @@ The single source of truth for where the project is. Updated after every step.
 Updated every session. On track = steps done / 57 is at least sessions used / 48.
 
 - **Sessions used:** 2 / 48
-- **Steps done:** 2 / 57
-- **Status:** behind (2 / 57 is below 2 / 48; on track needs 3 steps. 0.3 counts once 0.3b is done)
+- **Steps done:** 3 / 57
+- **Status:** on track (0.3 is not counted until 0.3b is done)
 - **Crunch weeks:** 2, 7, 8
 
 ## Current position
 
-- **Next step:** 0.4 Compose skeleton `[short]`
+- **Next step:** 1.1 LLM wrapper `[short]`
 - **Week:** not started
 - **Blocked on:** nothing
 - **Open (started, not done):** 0.3 (0.3a done; 0.3b waits for Claude API credits, due before the week 3 CI gate)
@@ -23,7 +23,7 @@ Updated every session. On track = steps done / 57 is at least sessions used / 48
 
 | Phase | Steps | Done | Deliverable shown working |
 |---|---|---|---|
-| 0 Setup | 4 | 2 | — |
+| 0 Setup | 4 | 3 | — |
 | 1 Demo agents + simulator | 6 | 0 | no |
 | 2 SDK + collector | 8 | 0 | no |
 | 3 Offline eval + CI gate | 6 | 0 | no |
@@ -32,7 +32,7 @@ Updated every session. On track = steps done / 57 is at least sessions used / 48
 | 6 Drift + clustering | 6 | 0 | no |
 | 7 Dashboard | 8 | 0 | no |
 | 8 Package, deploy, docs | 8 | 0 | no |
-| **Total** | **57** | **2** | |
+| **Total** | **57** | **3** | |
 
 ## How to log a step
 
@@ -53,9 +53,18 @@ Rules: a step is `done` only if its check was actually run and passed. A step th
 
 ## Log
 
+### 0.4 Compose skeleton — 2026-11-26
+- Status: done
+- Commit: the commit that adds this entry, `feat: compose skeleton (0.4)`
+- What was built: `docker-compose.yml` with `postgres` (`pgvector/pgvector:0.8.7-pg17`) and `redis` (`redis:8.8.4-alpine`), healthchecks, named volumes, ports bound to 127.0.0.1. Optional `POSTGRES_PASSWORD`, `POSTGRES_HOST_PORT` and `REDIS_HOST_PORT` overrides.
+- Done-when check: `rtk proxy make up` exited 0 with both containers `(healthy)`; `psql -c "CREATE EXTENSION vector"` printed `CREATE EXTENSION`, version 0.8.7. Data survived `make down` and `make up`.
+- Deviations from steps.md / architecture.md: none. Defaults are 5432 and 6379; the local `.env` uses 5433 because another project's container (`juris-db-1`) holds 5432.
+- Numbers measured: none
+- Follow-ups: `DATABASE_URL` from this host must use port 5433 here (5432 inside compose). The extension was created by hand; a migration should create it in phase 2. Use `--quiet-pull` or a filtered log for future `make up` output.
+
 ### 0.3a Local LLM — 2026-11-26
 - Status: done (0.3 as a whole: in progress, 0.3b left)
-- Commit: see `git log --grep "(0.3a)"`
+- Commit: 02076f0
 - What was built: `demo_agents/check_llm.py`, the `anthropic` dependency (2.14.0) in `demo_agents`, `LLM_BASE_URL` in `.env.example`, local `.env` (gitignored, placeholder key). Step 0.3 split into 0.3a and 0.3b.
 - Done-when check: `rtk proxy uv run --locked --package sentinel-demo-agents --env-file .env python demo_agents/check_llm.py` printed `qwen2.5:7b end_turn 36` and `text='Ready'`, exit 0. A second run also passed.
 - Deviations from steps.md / architecture.md: local Ollama instead of a paid provider, `LLM_BASE_URL` added (D-008). No spending cap or GitHub secret yet (0.3b).
